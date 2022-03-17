@@ -3,6 +3,10 @@ import logo from './logo.svg'
 import './App.css'
 import { NavLink, Route, Routes  } from 'react-router-dom'
 
+
+import Header from './components/Header'
+import Footer from './components/Footer'
+
 import Home from './pages/Home'
 import Product from './pages/Product'
 
@@ -12,23 +16,13 @@ function App() {
 
   return (
     <div className="App">
-     
-        <ul>
-          <li>
-            <NavLink className='' to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink className='' to="product">Product</NavLink>
-          </li>
-        </ul>
-        <p>Nguyễn Văn Trăm Ph14967</p>
+        <Header />
         <main>
           <Routes>
             <Route path='/' element={< Home />} />
-            <Route path='product' element={< Product />} />
           </Routes>
         </main>
-      
+      <Footer />
     </div>
   )
 }
