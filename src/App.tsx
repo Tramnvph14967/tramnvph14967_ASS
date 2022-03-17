@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+     
         <ul>
           <li>
             <NavLink className='' to="/">Home</NavLink>
@@ -28,7 +28,7 @@ function App() {
             <Route path='product' element={< Product />} />
           </Routes>
         </main>
-      </header>
+      
     </div>
   )
 }
