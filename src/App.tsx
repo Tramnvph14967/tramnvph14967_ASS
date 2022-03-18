@@ -4,8 +4,8 @@ import './App.css'
 import { NavLink, Route, Routes  } from 'react-router-dom'
 
 
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/clients/Header'
+import Footer from './components/clients/Footer'
 
 import Home from './pages/Home'
 import Product from './pages/Product'
