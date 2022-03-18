@@ -16,7 +16,6 @@ const Navbar = (props: Props) => {
         <li><a href="#" className="nav-link px-2 link-dark  btn-outline-light">Watch`s</a></li>
         <li><a href="#" className="nav-link px-2 link-dark  btn-outline-light">News</a></li>
         <li><a href="#" className="nav-link px-2 link-dark  btn-outline-light">Contact</a></li>
-
       </ul>
     </div>
   )

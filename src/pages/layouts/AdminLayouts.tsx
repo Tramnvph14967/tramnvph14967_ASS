@@ -1,10 +1,16 @@
 import React from 'react'
-
+import {Outlet} from 'react-router-dom'
 type Props = {}
 
 const AdminLayouts = (props: Props) => {
   return (
-    <div>AdminLayouts</div>
+    <div>
+      <header>Header_admin</header>
+      <aside>Aside</aside>
+      <main>
+        <Outlet />
+      </main>
+    </div>
   )
 }
 
