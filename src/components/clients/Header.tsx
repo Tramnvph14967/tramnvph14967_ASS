@@ -9,7 +9,7 @@ type Props = {}
 const Header = (props: Props) => {
   return (
 
-    <div className="container-fuild ">
+    <div className="container-fuild sticky-top bg-white">
       <header className="p-4 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <Navbar />
         

@@ -5,8 +5,9 @@ type Props = {}
 const Footer = (props: Props) => {
   return (
     <div className="container-fuild">
-      <footer className="py-5">
-        <div className="row">
+      <hr />
+      <footer>
+        <div className="row px-5">
           <div className="col-2">
             <h5>Contact Us</h5>
             <ul className="nav flex-column">
@@ -38,7 +39,7 @@ const Footer = (props: Props) => {
               <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Pay with Bitpay / Crypto</a></li>
             </ul>
           </div>
-          <div className="col-4 offset-1">
+          <div className="col-4 offset-1  text-center">
             <form>
               <h5>Subscribe to our newsletter</h5>
               <p>Monthly digest of whats new and exciting from us.</p>
@@ -50,7 +51,7 @@ const Footer = (props: Props) => {
             </form>
           </div>
         </div>
-        <div className="d-flex justify-content-between py-4 my-4 border-top p-4">
+        <div className="d-flex justify-content-between my-4 border-top p-2">
           <p>© 2021 Company, Inc. All rights reserved.</p>
           <ul className="list-unstyled d-flex">
 
