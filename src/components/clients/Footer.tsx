@@ -20,7 +20,7 @@ const Footer = (props: Props) => {
           </div>
           <div className="col-2">
             <h5>Company Info</h5>
- 
+
             <ul className="nav flex-column">
               <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">About Jomashop</a></li>
               <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">The Parlor: Our Blog</a></li>
@@ -47,6 +47,10 @@ const Footer = (props: Props) => {
                 <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
                 <input id="newsletter1" type="text" className="form-control" placeholder="Email address" />
                 <button className="btn btn-primary" type="button">Subscribe</button>
+              </div>
+              <div className='maps py-2'>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d251637.95196238213!2d105.6189045!3d9.779349!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a089d294a53693%3A0xf3d0fb7758da72d0!2zVHLGsOG7nW5nIGNhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYyBD4bqnbiBUaMah!5e0!3m2!1svi!2s!4v1648551895744!5m2!1svi!2s" width={400} height={150} style={{border: 0}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+
               </div>
             </form>
           </div>
@@ -75,7 +79,7 @@ const Footer = (props: Props) => {
 
 
 
-        
+
           </ul>
         </div>
       </footer>

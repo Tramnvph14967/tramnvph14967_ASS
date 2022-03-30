@@ -1,12 +1,13 @@
 import React from 'react'
 import {Outlet} from 'react-router-dom'
+import Header from '../../components/admins/Header'
+import Footer from '../../components/admins/Footer'
 type Props = {}
 
 const AdminLayouts = (props: Props) => {
   return (
     <div>
-      <header>Header_admin</header>
-      <aside>Aside</aside>
+      <Header />
       <main>
         <Outlet />
       </main>
