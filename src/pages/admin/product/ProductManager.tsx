@@ -3,6 +3,7 @@ import React from 'react'
 type Props = {}
 
 const ProductManager = (props: Props) => {
+  
   return (
     <div>
       <h2>Section title</h2>

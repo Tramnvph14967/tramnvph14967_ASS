@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import { NavLink, Route, Routes } from 'react-router-dom'
@@ -28,11 +28,28 @@ import ProductDetail from './pages/website/ProductDetail'
 import Contact from './pages/website/Contact'
 import CheckOut from './pages/website/CheckOut'
 
+import { ProductType } from './pages/types/product'
+import { add, list, remove, update } from './api/product'
+
 import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [products, setProducts] = useState<ProductType[]>([]);
+  useEffect(() => {
+    const getProducts = async () => {
+          const { data } = await list();
+          // setProducts(data);
+          console.log(data);
+          
+    }
+    getProducts();
+}, [])
+
+
+
+
 
   return (
     <div className="container-fuild">
@@ -52,11 +69,16 @@ function App() {
         <Route path="admin" element={<AdminLayouts />}>
           <Route index element={<Navigate to="Dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
+
+          
           <Route path='product'>
             <Route index element={<ProductManager />} />
             <Route path='add' element={<ProductAdd />} />
             <Route path=':id/edit' element={<ProductEdit />} />
           </Route>
+
+
+
           <Route path='news'>
             <Route index element={<NewsManager />} />
             <Route path='add' element={<NewsAdd />} />
