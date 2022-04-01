@@ -36,16 +36,36 @@ import Signup from './pages/Signup'
 
 function App() {
   const [count, setCount] = useState(0);
+
+  // data product
   const [products, setProducts] = useState<ProductType[]>([]);
   useEffect(() => {
     const getProducts = async () => {
-          const { data } = await list();
-          // setProducts(data);
-          console.log(data);
-          
+      const { data } = await list();
+      setProducts(data);
+      // console.log(data);
+
     }
     getProducts();
-}, [])
+  }, [])
+  //thêm
+  const onHanldeAdd = (data: ProductType) => {
+    add(data);
+    setProducts([...products, data])
+  }
+  //xoa
+  const removeItem = (id: number) => {
+    remove(id);
+    // reRender
+    setProducts(products.filter(item => item.id !== id));
+    // setProduct()
+  }
+  //sửa
+  const onHandleUpdate = async (product: ProductType) => {
+    const { data } = await update(product);
+    // reRender
+    setProducts(products.map(item => item.id === data.id ? data : item));
+  }
 
 
 
@@ -64,17 +84,18 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/checkout" element={<CheckOut />} />
+
         </Route>
 
         <Route path="admin" element={<AdminLayouts />}>
           <Route index element={<Navigate to="Dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
 
-          
+
           <Route path='product'>
-            <Route index element={<ProductManager />} />
-            <Route path='add' element={<ProductAdd />} />
-            <Route path=':id/edit' element={<ProductEdit />} />
+            <Route index element={<ProductManager products={products} onRemove={removeItem} />} />
+            <Route path='add' element={<ProductAdd onAdd={onHanldeAdd} />} />
+            <Route path=':id/edit' element={<ProductEdit onUpdate={onHandleUpdate} />} />
           </Route>
 
 

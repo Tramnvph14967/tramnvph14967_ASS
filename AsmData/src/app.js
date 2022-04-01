@@ -22,7 +22,7 @@ app.use("/api", authRouter);
 
 
 // kết nối với data
-mongoose.connect("mongodb://127.0.0.1:27017/AssWe16306")
+mongoose.connect("mongodb://127.0.0.1:27017/we16306")
     .then(() => console.log("Connect db thanh cong"))
     .catch((error) => console.log(error))
 

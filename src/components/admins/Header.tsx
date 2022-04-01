@@ -18,7 +18,6 @@ const Header = (props: Props) => {
       </div>
     </header>
 
-
   )
 }
 
