@@ -6,7 +6,7 @@ const router = Router();
 
 
 
-router.get("/products",  list);
+router.get("/products", list);
 router.get("/product/:id", get);
 router.post('/products/:userId', requireSignin, isAuth, isAdmin, create);
 router.delete("/product/:id", remove);
