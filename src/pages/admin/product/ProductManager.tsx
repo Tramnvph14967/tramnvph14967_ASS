@@ -1,6 +1,6 @@
 import React from 'react'
 import { ProductType } from '../../types/product'
-
+import { Link, NavLink } from 'react-router-dom';
 
 type ProductManagerProps = {
   products: ProductType[],
@@ -13,6 +13,8 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
   return (
     <div>
       <h2>Section title</h2>
+
+      <button><a href="add">Add</a></button>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
           <thead>
@@ -28,16 +30,16 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
           <tbody>
             {products?.map((product, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>placeholder</td>
                   <td>
-                    <button>Update</button>
+                      <Link to= {`${product._id}/edit`} className="p-2 underline">Edit</Link>
                   </td>
                   <td>
-                    <button onClick={() => products.onRemove(product.id)}>Delete</button>
+                    <button  onClick={() => onRemove(product._id)}>Delete</button>
                   </td>
                 </tr>
               )

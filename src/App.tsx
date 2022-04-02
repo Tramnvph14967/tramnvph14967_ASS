@@ -44,30 +44,37 @@ function App() {
       const { data } = await list();
       setProducts(data);
       // console.log(data);
-
     }
     getProducts();
   }, [])
+
+
   //thêm
   const onHanldeAdd = (data: ProductType) => {
+    // console.log(data);
+    
     add(data);
     setProducts([...products, data])
   }
+
+
+
   //xoa
   const removeItem = (id: number) => {
     remove(id);
+    confirm("Bạn có muốn xóa không? ");
     // reRender
-    setProducts(products.filter(item => item.id !== id));
+    setProducts(products.filter(item => item._id !== id));
     // setProduct()
   }
+
+
   //sửa
   const onHandleUpdate = async (product: ProductType) => {
     const { data } = await update(product);
     // reRender
-    setProducts(products.map(item => item.id === data.id ? data : item));
-  }
-
-
+    setProducts(products.map(item => item.id === data.id ? data : item ));
+}
 
 
 
