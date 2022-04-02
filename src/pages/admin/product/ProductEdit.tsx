@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { read } from '../../../api/product';
 import { ProductType } from '../../types/product';
-
+import Nav from '../../../components/admins/Navbar'
 
 
 type ProductEditProps = {
@@ -15,19 +15,19 @@ type FormInputs = {
 }
 
 const ProductEdit = (props: ProductEditProps) => {
-  const {register, handleSubmit, formState: {errors},reset} = useForm<FormInputs>();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormInputs>();
   const navigate = useNavigate();
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    const getProducts = async () =>{
-      const {data} = await read (id);
+    const getProducts = async () => {
+      const { data } = await read(id);
       // console.log(data);
-      
+
       reset(data);
     }
     getProducts();
-  },[])
+  }, [])
 
 
 
@@ -35,14 +35,25 @@ const ProductEdit = (props: ProductEditProps) => {
     props.onUpdate(data);
     alert("Update thành công .")
     navigate("/admin/product")
-}
+  }
   return (
-    <form action="" method="post" onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" {...register('name', { required: true })} />
-      {errors.name && <span>Fields is required</span>}
-      <input type="number" {...register('price')} />
-      <button>Update</button>
-    </form>
+    <div className="container-fluid">
+      <div className="row">
+
+        <Nav />
+
+
+        <form className="col-md-9 ms-sm-auto col-lg-10 px-md-4" action="" method="post" onSubmit={handleSubmit(onSubmit)}>
+          <input type="text" {...register('name', { required: true })} />
+          {errors.name && <span>Fields is required</span>}
+          <input type="number" {...register('price')} />
+          <button>Update</button>
+        </form>
+
+
+      </div>
+    </div>
+
   )
 }
 

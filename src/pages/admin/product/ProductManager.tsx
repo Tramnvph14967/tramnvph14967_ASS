@@ -1,6 +1,8 @@
 import React from 'react'
 import { ProductType } from '../../types/product'
 import { Link, NavLink } from 'react-router-dom';
+import Nav from '../../../components/admins/Navbar'
+
 
 type ProductManagerProps = {
   products: ProductType[],
@@ -11,48 +13,60 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
   // console.log(products);
 
   return (
-    <div>
-      <h2>Section title</h2>
+    <div className="container-fluid">
+      <div className="row">
 
-      <button><a href="add">Add</a></button>
-      <div className="table-responsive">
-        <table className="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Header</th>
-              <th scope="col">Update</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products?.map((product, index) => {
-              return (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{product.name}</td>
-                  <td>{product.price}</td>
-                  <td>placeholder</td>
-                  <td>
-                      <Link to= {`${product._id}/edit`} className="p-2 underline">Edit</Link>
-                  </td>
-                  <td>
-                    <button  onClick={() => onRemove(product._id)}>Delete</button>
-                  </td>
+        <Nav />
+
+        <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <h2>Section title</h2>
+
+          <button><a href="product/add">Add</a></button>
+          <div className="table-responsive">
+
+            <table className="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Header</th>
+                  <th scope="col">Update</th>
+                  <th scope="col">Delete</th>
                 </tr>
-              )
-            })}
+              </thead>
+              <tbody>
+                {products?.map((product, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{product.name}</td>
+                      <td>{product.price}</td>
+                      <td>placeholder</td>
+                      <td>
+                        <Link to={`${product._id}/edit`} className="p-2 underline">Edit</Link>
+                      </td>
+                      <td>
+                        <button onClick={() => onRemove(product._id)}>Delete</button>
+                      </td>
+                    </tr>
+                  )
+                })}
 
 
 
 
 
-          </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
       </div>
     </div>
+
   )
 }
 
