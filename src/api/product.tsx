@@ -15,10 +15,11 @@ export const remove = (id: number) => {
 export const add = (product: ProductType) => {
     // const url = `/products/${user._id}`;
     const url = `/products`;
+    // return instance.post(url,product);
     return instance.post(url, product, {
-        headers: {
-            "Authorization": `Bearer ${token}`
-        }
+        // headers: {
+        //     "Authorization": `Bearer ${token}`
+        // }
     });
 }
 export const read = (id: number) => {

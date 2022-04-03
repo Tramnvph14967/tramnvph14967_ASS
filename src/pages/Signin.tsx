@@ -1,21 +1,35 @@
 import React from 'react'
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { signin, signup } from '../api/auth';
 
-type Props = {}
+type FormInputs = {
+  name: string,
+  email: string,
+  password: string | number
+}
+const Signin = () => {
+  const { register, handleSubmit, formState} = useForm<FormInputs>();
+    const navigate = useNavigate();
 
-const Signin = (props: Props) => {
+    const onSubmit: SubmitHandler<FormInputs> = async data => {
+        const { data: user } = await signin(data);
+        localStorage.setItem('user', JSON.stringify(user))
+        navigate('/admin/product')
+    }
   return (
-    <div className='container col-md-6'>
+    
 
-      <form className='py-4'>
+      <form className='py-4 container col-md-6' action="" onSubmit={handleSubmit(onSubmit)}>
         <h1 className='text-center'>Sign in</h1>
         <br />
         <div className="form-floating">
-          <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
+          <input type="email" {...register('email', {required: true})} className="form-control" id="floatingInput" placeholder="name@example.com" />
           <label htmlFor="floatingInput">Email address</label>
         </div>
         <br />
         <div className="form-floating">
-          <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
+          <input type="password" {...register('password', {required: true})} className="form-control" id="floatingPassword" placeholder="Password" />
           <label htmlFor="floatingPassword">Password</label>
         </div>
         <br />
@@ -28,7 +42,7 @@ const Signin = (props: Props) => {
         <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
       </form>
 
-    </div>
+   
   )
 }
 
