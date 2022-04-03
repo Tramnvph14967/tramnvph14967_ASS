@@ -1,4 +1,4 @@
-import mongoose, { ObjectId }  from "mongoose";
+import mongoose, {ObjectId} from "mongoose";
 
 const productSchema = mongoose.Schema({
     name: {
@@ -17,10 +17,6 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    detail : {
-        type: String,
-        required: true
-    },
     price: {
         type: Number,
         required: true
@@ -34,7 +30,5 @@ const productSchema = mongoose.Schema({
         required: true
     }
 }, { timestamps: true} )
-
-
 
 export default mongoose.model('Product', productSchema);

@@ -1,7 +1,6 @@
 import Product from '../models/product'
 import slugify from 'slugify';
 
-
 export const create = async (req, res) => { // create product
     req.body.slug = slugify(req.body.name);
     try {
@@ -9,10 +8,11 @@ export const create = async (req, res) => { // create product
         res.json(product);    
     } catch (error) {
         res.status(400).json({
-            message: "Thêm sản phẩm không thành công"
+            message: "Không thành công"
         })
     }
 }
+
 
 export const list = async (req, res) => { // get all
     // /product?limit=4
@@ -31,6 +31,7 @@ export const list = async (req, res) => { // get all
         })
     }
   }
+
   
 export const get = async (req, res) => { // get a product
     try {
@@ -42,6 +43,7 @@ export const get = async (req, res) => { // get a product
         })
     }
 }
+
 
 
 export const remove = async (req, res) => { // delete product
