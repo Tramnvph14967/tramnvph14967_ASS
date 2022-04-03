@@ -31,16 +31,18 @@ export const list = async (req, res) => { // get all
         })
     }
   }
+  
 export const get = async (req, res) => { // get a product
     try {
         const products = await Product.findOne({_id: req.params.id }).exec();
         res.json(products);    
     } catch (error) {
         res.status(400).json({
-            message: "Thêm sản phẩm không thành công"
+            message: "Không thành công"
         })
     }
 }
+
 
 export const remove = async (req, res) => { // delete product
     try {
@@ -48,10 +50,13 @@ export const remove = async (req, res) => { // delete product
         res.json(products);    
     } catch (error) {
         res.status(400).json({
-            message: "Thêm sản phẩm không thành công"
+            message: "Không thành công"
         })
     }
 }
+
+
+
 export const update = async (req, res) => { // update product
     const condition = {_id: req.params.id };
     const update = req.body;
@@ -61,7 +66,7 @@ export const update = async (req, res) => { // update product
         res.json(products);    
     } catch (error) {
         res.status(400).json({
-            message: "Thêm sản phẩm không thành công"
+            message: "Update Sản phẩm không thành công"
         })
     }
 }

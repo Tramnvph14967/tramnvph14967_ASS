@@ -67,13 +67,13 @@ function App() {
     setProducts(products.filter(item => item._id !== id));
     // setProduct()
   }
-
-
   //sửa
   const onHandleUpdate = async (product: ProductType) => {
     const { data } = await update(product);
+    console.log(data);
+    
     // reRender
-    setProducts(products.map(item => item.id === data.id ? data : item ));
+    setProducts(products.map(item => item._id === data.id ? data : item ));
 }
 
 
