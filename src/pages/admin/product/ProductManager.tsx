@@ -29,8 +29,10 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
+                  <th scope="col">Image</th>
                   <th scope="col">Price</th>
-                  <th scope="col">Header</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Detail</th>
                   <th scope="col">Update</th>
                   <th scope="col">Delete</th>
                 </tr>
@@ -41,8 +43,10 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>{product.name}</td>
+                      <td>image</td>
                       <td>{product.price}</td>
-                      <td>placeholder</td>
+                      <td>Description</td>
+                      <td>Detail</td>
                       <td>
                         <Link to={`${product._id}/edit`} className="p-2 underline">Edit</Link>
                       </td>
