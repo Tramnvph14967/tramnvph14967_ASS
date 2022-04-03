@@ -15,11 +15,10 @@ const Signin = () => {
   const onSubmit: SubmitHandler<FormInputs> = async data => {
     const { data: user } = await signin(data);
     localStorage.setItem('user', JSON.stringify(user))
+    alert("đăng nhập thành công");
     navigate('/admin/product')
   }
   return (
-
-
     <form className='py-4 container col-md-6' action="" onSubmit={handleSubmit(onSubmit)}>
       <h1 className='text-center'>Sign in</h1>
       <br />
