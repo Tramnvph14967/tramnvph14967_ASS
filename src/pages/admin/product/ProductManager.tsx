@@ -23,7 +23,6 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
 
           <button><a href="product/add">Add</a></button>
           <div className="table-responsive">
-
             <table className="table table-striped table-sm">
               <thead>
                 <tr>

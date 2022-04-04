@@ -13,7 +13,6 @@ export const create = async (req, res) => { // create product
     }
 }
 
-
 export const list = async (req, res) => { // get all
     // /product?limit=4
     // /product?sortBy=name&order=asc
@@ -32,7 +31,6 @@ export const list = async (req, res) => { // get all
     }
   }
 
-  
 export const get = async (req, res) => { // get a product
     try {
         const products = await Product.findOne({_id: req.params.id }).exec();
@@ -43,8 +41,6 @@ export const get = async (req, res) => { // get a product
         })
     }
 }
-
-
 
 export const remove = async (req, res) => { // delete product
     try {
@@ -57,9 +53,8 @@ export const remove = async (req, res) => { // delete product
     }
 }
 
-
 export const update = async (req, res) => { // update product
-    const condition = {_id: req.params.id };
+    const condition = {_id: req.params.id }; 
     const update = req.body;
     const optional = { new : true}
     try {

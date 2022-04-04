@@ -67,8 +67,7 @@ function App() {
   //sửa
   const onHandleUpdate = async (product: ProductType) => {
     const { data } = await update(product);
-    console.log(data);
-
+    // console.log(data);
     // reRender
     setProducts(products.map(item => item._id === data.id ? data : item));
   }

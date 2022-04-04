@@ -18,40 +18,38 @@ type FormInputs = {
 }
 
 const ProductEdit = (props: ProductEditProps) => {
-  const {register, handleSubmit, formState: {errors},reset} = useForm<FormInputs>();
+  const { register, handleSubmit, formState: {errors}, reset} = useForm<FormInputs>();
   const navigate = useNavigate();
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    const getProducts = async () =>{
-      const {data} = await read (id);
-      reset(data);
-    }
-    getProducts();
-  },[])
-
+      const getProduct = async () => {
+          const { data } = await read(id);
+          reset(data)
+      }
+      getProduct();
+  }, [])
 
   const onSubmit: SubmitHandler<FormInputs> = data => {
-    props.onUpdate(data);
-    navigate('admin/product');
-
+      props.onUpdate(data);
+      navigate('/admin/product')
   }
   return (
     <div className="container-fluid">
       <div className="row">
 
         <Nav />
-         <form className="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-4" action="" onSubmit={handleSubmit(onSubmit)}>
+        <form className="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-4" action="" onSubmit={handleSubmit(onSubmit)}>
           <h1>Sửa Sản Phẩm</h1>
 
           <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon1">Name</span>
-            <input type="text" {...register('name', { required: true})} className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+            <input type="text" {...register('name', { required: true })} className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
           </div>
-          
+
           <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon3">Image</span>
-            <input type="text" {...register('image')} className="form-control"  placeholder="Image" id="basic-url" aria-describedby="basic-addon3" />
+            <input type="text" {...register('image')} className="form-control" placeholder="Image" id="basic-url" aria-describedby="basic-addon3" />
           </div>
           <div className="input-group mb-3">
             <span className="input-group-text">Price</span>
