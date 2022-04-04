@@ -33,10 +33,7 @@ const productSchema = mongoose.Schema({
         type: ObjectId,
         ref: "Category"
     }
-    // shipping: {
-    //     type: String,
-    //     required: true
-    // }
+
 }, { timestamps: true} )
 
 export default mongoose.model('Product', productSchema);
