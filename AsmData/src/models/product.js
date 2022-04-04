@@ -13,7 +13,7 @@ const productSchema = mongoose.Schema({
         unique:  true,
         index: true
     },
-    description : {
+    image : {
         type: String,
         required: true
     },
@@ -21,14 +21,22 @@ const productSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    description : {
+        type: String,
+        required: true
+    },
+    detail : {
+        type: String,
+        required: true
+    },
     category: {
         type: ObjectId,
         ref: "Category"
-    },
-    shipping: {
-        type: String,
-        required: true
     }
+    // shipping: {
+    //     type: String,
+    //     required: true
+    // }
 }, { timestamps: true} )
 
 export default mongoose.model('Product', productSchema);

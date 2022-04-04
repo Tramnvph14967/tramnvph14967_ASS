@@ -20,7 +20,7 @@ const Signup = () => {
     const onSubmit: SubmitHandler<FormInputs> = data => {
         signup(data);
         
-        navigate('/admin/user');
+        navigate('/signin');
         alert("Đăng ký thành công");
     }
 

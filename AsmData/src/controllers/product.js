@@ -58,14 +58,13 @@ export const remove = async (req, res) => { // delete product
 }
 
 
-
 export const update = async (req, res) => { // update product
     const condition = {_id: req.params.id };
     const update = req.body;
     const optional = { new : true}
     try {
-        const products = await Product.findOneAndUpdate(condition,update,optional).exec();
-        res.json(products);    
+        const product = await Product.findOneAndUpdate(condition,update,optional).exec();
+        res.json(product);    
     } catch (error) {
         res.status(400).json({
             message: "Update Sản phẩm không thành công"

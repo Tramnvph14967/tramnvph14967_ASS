@@ -15,8 +15,6 @@ app.use(express.json());
 app.use(cors());
 
 
-
-
 // Routing
 app.use("/api", productRouter);
 app.use("/api", categoryRouter);
@@ -28,9 +26,9 @@ mongoose.connect("mongodb://127.0.0.1:27017/we16306")
     .then(() => console.log("Connect db thanh cong"))
     .catch((error) => console.log(error))
 
-// Connect data
+
 const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`Server đang chạy cổng ${PORT}`);
 });
-// localhost:27017
+

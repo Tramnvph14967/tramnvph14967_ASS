@@ -23,7 +23,7 @@ export const add = (product: ProductType) => {
     });
 }
 export const read = (id: number) => {
-    const url = `/products/${id}`;
+    const url = `/product/${id}`;
     return instance.get(url);
 }
 export const update = (product: ProductType) => {

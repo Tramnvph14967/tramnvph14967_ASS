@@ -43,10 +43,10 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>{product.name}</td>
-                      <td>image</td>
+                      <td>{product.image}</td>
                       <td>{product.price}</td>
-                      <td>Description</td>
-                      <td>Detail</td>
+                      <td>{product.description}</td>
+                      <td>{product.detail}</td>
                       <td>
                         <Link to={`${product._id}/edit`} className="p-2 underline">Edit</Link>
                       </td>

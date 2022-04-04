@@ -32,10 +32,6 @@ const ProductAdd = (props: ProductAddProps) => {
         <Nav />
 
         <form className="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-4" action="" onSubmit={handleSubmit(onSubmit)}>
-          {/* <input type="text" {...register('name', { required: true })} />
-          <input type="number"{...register('price')} />
-          <button>Add</button> */}
-
           <h1>Thêm Sản Phẩm</h1>
 
           <div className="input-group mb-3">
