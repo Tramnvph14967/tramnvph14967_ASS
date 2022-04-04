@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { ProductType } from '../../types/product'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../../../components/admins/Navbar'
-
-
+import { categoryType } from "../../types/categoryType"
+import { list } from '../../../api/category';
 type ProductAddProps = {
   onAdd: (product: ProductType) => void
 }
@@ -13,18 +13,32 @@ type FormInputs = {
   image: string,
   price: number,
   description: string,
-  detail: string
+  detail: string,
+  category: string
 }
 
 
 const ProductAdd = (props: ProductAddProps) => {
   const { register, handleSubmit, formState } = useForm<FormInputs>();
   const navigate = useNavigate();
+  const [categorys, setCategorys] = useState<categoryType[]>([])
+
 
   const onSubmit: SubmitHandler<FormInputs> = data => {
     props.onAdd(data);
     navigate('/admin/product')
   }
+  useEffect(() => {
+    const getCategorys = async () => {
+        const { data } = await list();
+        console.log(data);
+        
+        setCategorys(data)
+    }
+    getCategorys();
+}, []);
+
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -33,7 +47,15 @@ const ProductAdd = (props: ProductAddProps) => {
 
         <form className="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-4" action="" onSubmit={handleSubmit(onSubmit)}>
           <h1>Thêm Sản Phẩm</h1>
-
+          <div className="w-full  mb-[10px]">
+            <label htmlFor="Category" className="block mb-3 text-sm font-semibold text-gray-500">Category</label>
+            <select {...register('category', { required: true })} className="w-full border bg-white rounded px-3 py-2 outline-none">
+              <option className="py-1">Categorys</option>
+              {categorys && categorys.map((item, index) => {
+                return <option key={index} className="py-1">{item.name}</option>
+              })}
+            </select>
+          </div>
           <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon1">Name</span>
             <input type="text" {...register('name', { required: true })} className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />

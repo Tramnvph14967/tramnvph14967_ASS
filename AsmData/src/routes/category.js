@@ -7,10 +7,10 @@ const router = Router();
 
 
 
-router.get("/category", checkAuth, list);
+router.get("/category", list);
 router.get("/category/:id", get);
-router.post('/categorys', checkAuth, create);
-router.get('/category/:slug', checkAuth, read);
+router.post('/categorys', create);
+router.get('/category/:slug', read);
 router.delete("/category/:id", remove);
 router.put("/category/:id", update);
 

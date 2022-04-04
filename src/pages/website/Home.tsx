@@ -1,8 +1,12 @@
 import React from 'react'
+import { ProductType } from '../types/product'
 
-type Props = {}
 
-const Home = (props: Props) => {
+type HomeProps = {
+  products: ProductType[],
+}
+
+const Home = ({products}: HomeProps) => {
   return (
     <div className='container-fuild'>
       {/* Banner */}
@@ -112,6 +116,7 @@ const Home = (props: Props) => {
       {/* Trending Now */}
       <div className="row p-5">
         <h2 className='text-center p-2'>Trending Now</h2>
+        
         <div className="col mt-2">
           <div className="card" style={{ width: '18rem' }}>
             <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
@@ -310,13 +315,6 @@ const Home = (props: Props) => {
           <p><a className="btn btn-secondary" href="#">View details »</a></p>
         </div>{/* /.col-lg-4 */}
       </div>
-
-
-
-
-
-
-
     </div>
   )
 }
