@@ -62,7 +62,7 @@ const ProductAdd = (props: ProductAddProps) => {
           </div>
           <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon3">Image</span>
-            <input type="text" {...register('image')} className="form-control" id="basic-url" aria-describedby="basic-addon3" />
+            <input type="file" {...register('image')} className="form-control" id="basic-url" aria-describedby="basic-addon3" />
           </div>
           <div className="input-group mb-3">
             <span className="input-group-text">Price</span>
