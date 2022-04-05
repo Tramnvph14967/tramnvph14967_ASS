@@ -1,6 +1,6 @@
 import React from 'react'
 import { ProductType } from '../types/product'
-
+import { Link, NavLink } from 'react-router-dom';
 
 type HomeProps = {
   products: ProductType[],
@@ -130,15 +130,12 @@ const Home = (products: HomeProps) => {
 
                 <div className="card-body">
                   <a href="#" className="card-link">Card link</a>
-                  <a href="#" className="card-link">Another link</a>
+                  <Link to={`/product/${item._id}`} className="card-link">Another link</Link>
                 </div>
               </div>
-
             </div>
           )
         })}
-
-
       </div>
 
 

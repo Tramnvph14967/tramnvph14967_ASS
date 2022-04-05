@@ -46,7 +46,7 @@ const ProductAdd = (props: ProductAddProps) => {
         <Nav />
 
         <form className="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-4" action="" onSubmit={handleSubmit(onSubmit)}>
-          <h1>Thêm Sản Phẩm</h1>
+          <h1>Add_Products</h1>
           <div className="w-full  mb-[10px]">
             <label htmlFor="Category" className="block mb-3 text-sm font-semibold text-gray-500">Category</label>
             <select {...register('category', { required: true })} className="w-full border bg-white rounded px-3 py-2 outline-none">
@@ -79,8 +79,9 @@ const ProductAdd = (props: ProductAddProps) => {
           </div>
 
           <button>Add</button>
+          <button><a href="/admin/product" className='link-dark '> List </a></button>
         </form>
-
+        
 
       </div>
     </div>

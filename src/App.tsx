@@ -120,15 +120,21 @@ const onHanldeAddCate = (data: categoryType) => {
       <Routes>
         <Route path="/" element={<WebsiteLayout />}>
           <Route index element={<Home products={products}/>} />
+          
           <Route path="product">
             <Route index element={<Product products={products} />} />
             <Route path=":id" element={<ProductDetail />} />
           </Route>
+
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/checkout" element={<CheckOut />} />
-
         </Route>
+
+
+
+
+
 
         <Route path="admin" element={<AdminLayouts />}>
           <Route index element={<Navigate to="Dashboard" />} />
@@ -147,8 +153,6 @@ const onHanldeAddCate = (data: categoryType) => {
             <Route path=':id/edit' element={<CategoryEdit onUpdate={onHandleUpdateCate} />} />
           </Route>
 
-
-
           <Route path='news'>
             <Route index element={<NewsManager />} />
             <Route path='add' element={<NewsAdd />} />
@@ -158,6 +162,9 @@ const onHanldeAddCate = (data: categoryType) => {
           <Route path='comment' element={<CommentManager />} />
           <Route path='order' element={<OrderManager />} />
         </Route>
+
+
+
 
         <Route path='signin' element={<Signin />} />
         <Route path='signup' element={<Signup />} />

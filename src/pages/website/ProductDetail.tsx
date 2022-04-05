@@ -7,12 +7,13 @@ const ProductDetail = (props: Props) => {
     <div className="container bootdey">
       <div className="col-md-12">
         <section className="panel">
-          <div className="panel-body col-md-12 flex" style={{display:"flex"}}>
+          <div className="panel-body col-md-12 flex" style={{ display: "flex" }}>
+            
             <div className="col-md-6">
               <div className="pro-img-details">
                 <img src="https://via.placeholder.com/550x380/FFB6C1/000000" alt />
               </div>
-             
+
             </div>
             <div className="col-md-6">
               <h4 className="pro-d-title">
