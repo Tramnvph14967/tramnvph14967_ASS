@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../../../components/admins/Navbar'
 import { categoryType } from "../../types/categoryType"
-import { list } from '../../../api/category';
+import { listcategory } from '../../../api/category';
 type ProductAddProps = {
   onAdd: (product: ProductType) => void
 }
@@ -30,7 +30,7 @@ const ProductAdd = (props: ProductAddProps) => {
   }
   useEffect(() => {
     const getCategorys = async () => {
-        const { data } = await list();
+        const { data } = await listcategory();
         // console.log(data);
         
         setCategorys(data)

@@ -3,7 +3,7 @@ import slugify from 'slugify';
 import Product from '../models/product'
 
 
-export const create = async (req, res) => { // create category
+export const addcategory = async (req, res) => { // create category
     req.body.slug = slugify(req.body.name);
     try {
         const category = await new Category(req.body).save()
@@ -16,7 +16,7 @@ export const create = async (req, res) => { // create category
 }
 
 
-export const list = async (req, res) => { // get all
+export const listcategory = async (req, res) => { // get all
     try {
         const categorys = await Category.find().exec();
         res.json(categorys);    
@@ -41,7 +41,7 @@ export const get = async (req, res) => { // get a Category
 
 
 
-export const remove = async (req, res) => { // delete Category
+export const removecatgory = async (req, res) => { // delete Category
     try {
         const categorys = await Category.findOneAndDelete({_id: req.params.id }).exec();
         res.json(categorys);    
@@ -54,7 +54,7 @@ export const remove = async (req, res) => { // delete Category
 
 
 
-export const update = async (req, res) => { // update Category
+export const updatecategory = async (req, res) => { // update Category
     const condition = {_id: req.params.id };
     const update = req.body;
     const optional = { new : true}

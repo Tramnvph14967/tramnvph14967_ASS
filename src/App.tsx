@@ -12,6 +12,15 @@ import Dashboard from './pages/admin/Dashboard'
 import ProductAdd from './pages/admin/product/ProductAdd'
 import ProductEdit from './pages/admin/product/ProductEdit'
 import ProductManager from './pages/admin/product/ProductManager'
+import { ProductType } from './pages/types/product'
+import { add, list, remove, update } from './api/product'
+
+
+import CategoryManager from './pages/admin/category/CategoryManager'
+import CategoryAdd from './pages/admin/category/CategoryAdd'
+import CategoryEdit from './pages/admin/category/CategoryEdit'
+import { categoryType } from './pages/types/categoryType'
+import { listcategory, addcategory, removecatgory, updatecategory } from './api/category'
 
 import NewsManager from './pages/admin/news/NewsManager'
 import NewsEdit from './pages/admin/news/NewsEdit'
@@ -28,15 +37,14 @@ import ProductDetail from './pages/website/ProductDetail'
 import Contact from './pages/website/Contact'
 import CheckOut from './pages/website/CheckOut'
 
-import { ProductType } from './pages/types/product'
-import { add, list, remove, update } from './api/product'
+
 
 import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 
 function App() {
   const [count, setCount] = useState(0);
-
+//-----------------------------------------------------------------Products------------------------------------------
   // data product
   const [products, setProducts] = useState<ProductType[]>([]);
   useEffect(() => {
@@ -47,8 +55,6 @@ function App() {
     }
     getProducts();
   }, [])
-
-
   //thêm
   const onHanldeAdd = (data: ProductType) => {
     // console.log(data);
@@ -72,6 +78,40 @@ function App() {
     setProducts(products.map(item => item._id === data.id ? data : item));
   }
 
+//-----------------------------------------------------------------------Category---------------------------------------------------------
+// data product
+const [categorys, setCategorys] = useState<categoryType[]>([]);
+useEffect(() => {
+  const getCategory = async () => {
+    const { data } = await listcategory();
+    setCategorys(data);
+    // console.log(data);
+  }
+  getCategory();
+}, [])
+
+//xoa
+const removecate = (id: number) => {
+  removecatgory(id);
+  confirm("Bạn có muốn xóa không? ");
+  // reRender
+  setCategorys(categorys.filter(item => item._id !== id));
+  
+}
+//thêm
+const onHanldeAddCate = (data: categoryType) => {
+  // console.log(data);
+
+  addcategory(data);
+  setCategorys([...categorys, data])
+}
+ //sửa
+ const onHandleUpdateCate = async (category: categoryType) => {
+  const { data } = await updatecategory(category);
+  console.log(data);
+  // reRender
+  setCategorys(categorys.map(item => item._id === data.id ? data : item));
+}
 
 
   return (
@@ -99,6 +139,12 @@ function App() {
             <Route index element={<ProductManager products={products} onRemove={removeItem} />} />
             <Route path='add' element={<ProductAdd onAdd={onHanldeAdd} />} />
             <Route path=':id/edit' element={<ProductEdit onUpdate={onHandleUpdate} />} />
+          </Route>
+
+          <Route path='category'>
+            <Route index element={<CategoryManager categorys={categorys} onRemove={removecate} />} />
+            <Route path='add' element={<CategoryAdd onAdd={onHanldeAddCate} />} />
+            <Route path=':id/edit' element={<CategoryEdit onUpdate={onHandleUpdateCate} />} />
           </Route>
 
 

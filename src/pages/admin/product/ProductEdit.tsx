@@ -5,17 +5,17 @@ import { read } from '../../../api/product';
 import { ProductType } from '../../types/product';
 import Nav from '../../../components/admins/Navbar'
 import { categoryType } from "../../types/categoryType"
-import { list } from '../../../api/category';
+import { listcategory } from '../../../api/category';
 type ProductEditProps = {
   onUpdate: (product: ProductType) => void
 }
 type FormInputs = {
-  name: string,
-  image: string,
+  name: String,
+  image: String,
   price: number,
-  description: string,
-  detail: string,
-  category: string
+  description: String,
+  detail: String,
+  category: String
 
 }
 
@@ -35,7 +35,7 @@ const ProductEdit = (props: ProductEditProps) => {
 
   useEffect(() => {
     const getCategorys = async () => {
-      const { data } = await list();
+      const { data } = await listcategory();
       console.log(data);
 
       setCategorys(data)
