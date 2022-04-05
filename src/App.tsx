@@ -119,9 +119,9 @@ const onHanldeAddCate = (data: categoryType) => {
 
       <Routes>
         <Route path="/" element={<WebsiteLayout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home products={products}/>} />
           <Route path="product">
-            <Route index element={<Product />} />
+            <Route index element={<Product products={products} />} />
             <Route path=":id" element={<ProductDetail />} />
           </Route>
           <Route path="/news" element={<News />} />

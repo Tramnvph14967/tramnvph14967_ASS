@@ -6,7 +6,9 @@ type HomeProps = {
   products: ProductType[],
 }
 
-const Home = ({products}: HomeProps) => {
+const Home = (products: HomeProps) => {
+  console.log(products);
+
   return (
     <div className='container-fuild'>
       {/* Banner */}
@@ -116,127 +118,27 @@ const Home = ({products}: HomeProps) => {
       {/* Trending Now */}
       <div className="row p-5">
         <h2 className='text-center p-2'>Trending Now</h2>
-        
-        <div className="col mt-2">
-          <div className="card" style={{ width: '18rem' }}>
-            <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <span>Giá: 245VNĐ</span>
-            </div>
+        {products.products?.map((item) => {
+          return (
+            <div className="col mt-2">
+              <div className="card" style={{ width: '18rem' }}>
+                <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">{item.name}</h5>
+                  <span>Giá:{item.price}VNĐ</span>
+                </div>
 
-            <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
-            </div>
-          </div>
+                <div className="card-body">
+                  <a href="#" className="card-link">Card link</a>
+                  <a href="#" className="card-link">Another link</a>
+                </div>
+              </div>
 
-        </div>
-        <div className="col mt-2">
-          <div className="card" style={{ width: '18rem' }}>
-            <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <span>Giá: 245VNĐ</span>
             </div>
+          )
+        })}
 
-            <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
-            </div>
-          </div>
 
-        </div>
-        <div className="col mt-2">
-          <div className="card" style={{ width: '18rem' }}>
-            <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <span>Giá: 245VNĐ</span>
-            </div>
-
-            <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
-            </div>
-          </div>
-
-        </div>
-        <div className="col mt-2">
-          <div className="card" style={{ width: '18rem' }}>
-            <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <span>Giá: 245VNĐ</span>
-            </div>
-
-            <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
-            </div>
-          </div>
-
-        </div>
-        <div className="col mt-2">
-          <div className="card" style={{ width: '18rem' }}>
-            <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <span>Giá: 245VNĐ</span>
-            </div>
-
-            <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
-            </div>
-          </div>
-
-        </div>
-        <div className="col mt-2">
-          <div className="card" style={{ width: '18rem' }}>
-            <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <span>Giá: 245VNĐ</span>
-            </div>
-
-            <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
-            </div>
-          </div>
-
-        </div>
-        <div className="col mt-2">
-          <div className="card" style={{ width: '18rem' }}>
-            <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <span>Giá: 245VNĐ</span>
-            </div>
-
-            <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
-            </div>
-          </div>
-
-        </div>
-        <div className="col mt-2">
-          <div className="card" style={{ width: '18rem' }}>
-            <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <span>Giá: 245VNĐ</span>
-            </div>
-
-            <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
-            </div>
-          </div>
-
-        </div>
       </div>
 
 
@@ -290,12 +192,12 @@ const Home = ({products}: HomeProps) => {
       </div>
 
 
-<hr />
+      <hr />
 
       <div className="row text-center px-3 py-3">
         <div className="col-lg-4">
           <a href=""><img className="bd-placeholder-img rounded-circle" width={140} height={140} src="https://i.doanhnhansaigon.vn/2015/07/21/loi-hua-thuong-hieu-doanhnhansaigon-1508413003_750x0.jpg" alt="" /></a>
-<br />
+          <br />
           <br /><p className=''>JOMASHOP PROMISE</p>
           <h5 className='p-2'>WARRANTY INCLUDED</h5>
           <p><a className="btn  btn-secondary" href="#">View details »</a></p>
