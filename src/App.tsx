@@ -26,7 +26,7 @@ import NewsManager from './pages/admin/news/NewsManager'
 import NewsEdit from './pages/admin/news/NewsEdit'
 import NewsAdd from './pages/admin/news/NewsAdd'
 
-import UserManager from './pages/admin/customers/UserManager'
+import UserManager from './pages/admin/user/UserManager'
 import CommentManager from './pages/admin/comment/CommentManager'
 import OrderManager from './pages/admin/orders/OrderManager'
 //website

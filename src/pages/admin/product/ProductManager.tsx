@@ -32,7 +32,6 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                   <th scope="col">Image</th>
                   <th scope="col">Price</th>
                   <th scope="col">Description</th>
-                  <th scope="col">Detail</th>
                   <th scope="col">Update</th>
                   <th scope="col">Delete</th>
                 </tr>
@@ -47,7 +46,6 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                       <td>{product.image}</td>
                       <td>{product.price}</td>
                       <td>{product.description}</td>
-                      <td>{product.detail}</td>
                       <td>
                         <Link to={`${product._id}/edit`} className="p-2 underline">Edit</Link>
                       </td>
