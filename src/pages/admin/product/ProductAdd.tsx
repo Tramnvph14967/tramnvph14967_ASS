@@ -9,12 +9,12 @@ type ProductAddProps = {
   onAdd: (product: ProductType) => void
 }
 type FormInputs = {
-  name: string,
-  image: string,
+  name: String,
+  image: String,
   price: number,
-  description: string,
-  detail: string,
-  category: string
+  description: String,
+  detail: String,
+  category: String
 }
 
 
@@ -31,7 +31,7 @@ const ProductAdd = (props: ProductAddProps) => {
   useEffect(() => {
     const getCategorys = async () => {
         const { data } = await list();
-        console.log(data);
+        // console.log(data);
         
         setCategorys(data)
     }
@@ -62,7 +62,7 @@ const ProductAdd = (props: ProductAddProps) => {
           </div>
           <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon3">Image</span>
-            <input type="file" {...register('image')} className="form-control" id="basic-url" aria-describedby="basic-addon3" />
+            <input type="text" {...register('image')} className="form-control" id="basic-url" aria-describedby="basic-addon3" />
           </div>
           <div className="input-group mb-3">
             <span className="input-group-text">Price</span>
