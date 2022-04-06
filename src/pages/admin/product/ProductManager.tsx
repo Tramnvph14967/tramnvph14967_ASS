@@ -21,7 +21,7 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
         <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <h2>Section title</h2>
 
-          <button><a href="/product/add" className='link-dark '>Add</a></button>
+          <button><a href="/admin/product/add" className='link-dark '>Add</a></button>
           <div className="table-responsive">
             <table className="table table-striped table-sm">
               <thead>
