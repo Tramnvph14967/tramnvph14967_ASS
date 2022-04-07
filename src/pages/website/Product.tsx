@@ -1,5 +1,7 @@
 import React from 'react'
 import { ProductType } from '../types/product'
+import {Link} from 'react-router-dom'
+
 
 type ProductProps = {
   products: ProductType[],
@@ -21,8 +23,8 @@ const Product = (products: ProductProps) => {
               <span>Giá: {item.price} VNĐ</span>
             </div>
             <div className="card-body">
-              <a href="#" className="card-link">Card link</a>
-              <a href="#" className="card-link">Another link</a>
+                  <a href="#" className="card-link">Add Card</a>
+                  <Link to={`/product/${item._id}`} className="card-link">Detail</Link>
             </div>
           </div>
 

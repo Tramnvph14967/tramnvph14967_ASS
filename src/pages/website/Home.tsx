@@ -129,8 +129,8 @@ const Home = (products: HomeProps) => {
                 </div>
 
                 <div className="card-body">
-                  <a href="#" className="card-link">Card link</a>
-                  <Link to={`/product/${item._id}`} className="card-link">Another link</Link>
+                  <a href="#" className="card-link">Add Card</a>
+                  <Link to={`/product/${item._id}`} className="card-link">Detail</Link>
                 </div>
               </div>
             </div>

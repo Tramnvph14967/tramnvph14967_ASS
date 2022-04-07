@@ -79,7 +79,8 @@ const ProductDetail = (props: Props) => {
               Bình Luận
             </h3>
             <div className="mb-3">
-              <textarea className="form-control" id="exampleFormControlTextarea1" rows={3} defaultValue={""} />
+              <textarea  className="form-control" id="exampleFormControlTextarea1" rows={3} defaultValue={""} />
+              <button>Gửi</button>
             </div>
           </div>
         </section>
