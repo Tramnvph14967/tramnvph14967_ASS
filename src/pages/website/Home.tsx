@@ -142,49 +142,25 @@ const Home = (products: HomeProps) => {
       {/* Featured Daily Deals */}
       <div className="row featurette">
         <div className="col-md-7 px-5 " >
-          <h2 className="featurette-heading text-center">Featured Daily Deals</h2>
-          <div className='text-center p-2'><button>Shop All Deals</button></div>
+          <h2 className="featurette-heading text-center">TOP 5 đồng hồ Orient Open Heart dưới 10 triệu</h2>
+
           <div className="row">
-            <div className="col">
-              <div className="card" style={{ width: '14rem' }}>
-                <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                </div>
-                <div className="card-body">
-                  <a href="#" className="card-link">Card link</a>
-                  <a href="#" className="card-link">Another link</a>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card" style={{ width: '14rem' }}>
-                <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                </div>
-                <div className="card-body">
-                  <a href="#" className="card-link">Card link</a>
-                  <a href="#" className="card-link">Another link</a>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card" style={{ width: '14rem' }}>
-                <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                </div>
-                <div className="card-body">
-                  <a href="#" className="card-link">Card link</a>
-                  <a href="#" className="card-link">Another link</a>
-                </div>
-              </div>
-            </div>
+            <strong>
+            Theo số liệu thống kê và qua quan sát hằng ngày, đồng hồ lộ cơ chính là một trong những sản phẩm bán chạy và được đeo nhiều nhất hiện nay. Khi cứ 10 người đeo đồng hồ thì đã có 5 đến 7 người lựa chọn đồng hồ lộ cơ, bất kể nam hay nữ. Vậy đâu là 5 mẫu đồng hồ Orient Open Heart dưới 10 triệu bán chạy nhất Việt Nam? Hãy cùng khám phá nhé!
+            </strong>
+            
+            <p>Một trong những điểm mạnh của chiếc đồng hồ cơ mang thương hiệu Orient đó chính là bộ máy trên đồng hồ cơ được sản xuất, thiết kế và lắp ráp bởi chính Orient.</p>
+            <p>Thừa hưởng tinh hoa công nghệ từ công ty mẹ Seiko, Orient được đánh giá rất cao bởi họ tuân thủ nghiêm ngặt những tiêu chuẩn về từng khâu thiết kế, lắp ráp cũng như phải vượt qua rất nhiều bài kiểm tra về chất lượng dưới sự giám sát của các cơ quan có thẩm quyền tại Nhật Bản.</p>
+            <strong>1. Mẫu đồng hồ nữ ORIENT RA-AG0025S10B <a href="">Chi tiết</a> </strong>
+            <strong>2. Mẫu đồng hồ ORIENT FAG03001B0 <a href="">Chi tiết</a></strong>
+            <strong>3. Mẫu đồng hồ nam ORIENT RA-AG0005L 10B <a href="">Chi tiết</a></strong>
+            <strong>4. Mẫu đồng hồ nam ORIENT FAG02005W0 <a href="">Chi tiết</a></strong>
+            <strong>5. Mẫu đồng hồ nam ORIENT FAG00003B0 <a href="">Chi tiết</a></strong>
           </div>
         </div>
-        <div className="col-md-5">
-          <img src="https://cdn2.jomashop.com/media/wysiwyg/footer_main_hp_03.jpg" width="500" alt="" />
+        <div className="col-md-4">
+          {/* <img src="https://cdn2.jomashop.com/media/wysiwyg/footer_main_hp_03.jpg" width="500" alt="" /> */}
+          <iframe width="530" height="415" src="https://www.youtube.com/embed/Apxng9HzZzo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
 

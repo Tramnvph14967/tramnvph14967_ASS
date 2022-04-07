@@ -69,7 +69,7 @@ const ProductDetail = (props: Props) => {
             </div>
           </div>
           <div>
-            <h3>
+            <h3 className='py-4'>
               Chi Tiết Sản Phẩm
             </h3>
             <p>{product?.detail}</p>
