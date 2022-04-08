@@ -130,11 +130,6 @@ const onHanldeAddCate = (data: categoryType) => {
           <Route path="/checkout" element={<CheckOut />} />
         </Route>
 
-
-
-
-
-
         <Route path="admin" element={<AdminLayouts />}>
           <Route index element={<Navigate to="Dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
