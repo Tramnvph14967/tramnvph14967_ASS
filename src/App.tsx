@@ -34,7 +34,7 @@ import Home from './pages/website/Home'
 import Product from './pages/website/Product'
 import News from './pages/website/News'
 import ProductDetail from './pages/website/ProductDetail'
-import Contact from './pages/website/Contact'
+
 import CheckOut from './pages/website/CheckOut'
 
 
@@ -127,7 +127,6 @@ const onHanldeAddCate = (data: categoryType) => {
           </Route>
 
           <Route path="/news" element={<News />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/checkout" element={<CheckOut />} />
         </Route>
 
@@ -158,6 +157,8 @@ const onHanldeAddCate = (data: categoryType) => {
             <Route path='add' element={<NewsAdd />} />
             <Route path=':id/edit' element={<NewsEdit />} />
           </Route>
+
+
           <Route path='user' element={<UserManager />} />
           <Route path='comment' element={<CommentManager />} />
           <Route path='order' element={<OrderManager />} />
