@@ -70,3 +70,43 @@ export const get = async (req, res) => { // get a product
     }
 }
 
+
+
+export const getAll = async (req, res) => { //lọc sản phẩm
+    const { name, price, page, _limit } = req.query //khai báo các biến
+    if (name || price || (page && _limit)) { // kiểm tra
+        console.log("abc");
+        const { name } = req.query; //nhận giữ liệu name từ client
+        const { price } = req.query; //nhận giữ liệu price từ client
+        if (name) { //kiểm tra name
+            try { //Nếu
+                const products = await Product.find({ name: new RegExp(name, 'i') }).exec(); // kiểm tra xem name có hợp lệ không - regexp là hàm sử lý chuỗi
+                res.status(200).json(products) // trả về kết quả hợp lệ và báo 200
+            } catch (error) { //ngược lại báo lỗi
+                res.status(401).json({
+                    message: "Lỗi , không lấy được sản phẩm"
+                })
+            }
+        }
+        if (price) { //kiểm tra price
+            try { //nếu
+                const products = await Product.find({ price: { $gt: price } }).exec(); // kiểm tra xem có các giá trị price nào lớn hơn price nhận được từ phía client - $gt: kiểm tra lớn hơn
+                res.status(200).json(products) // trả về kết quả hợp lệ và thông báo 200
+            } catch (error) { // ngược lại thì báo lỗi
+                res.status(401).json({
+                    message: "Lỗi , không lấy được sản phẩm"
+                })
+            }
+        }
+        
+    } else { //ngược lại
+        try {
+            const products = await Product.find().exec(); // trả về tất cả giữ liệu
+            res.status(200).json(products)
+        } catch (error) {
+            res.status(401).json({
+                message: "Lỗi , không lấy được sản phẩm"
+            })
+        }
+    }
+}
