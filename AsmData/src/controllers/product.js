@@ -70,8 +70,6 @@ export const get = async (req, res) => { // get a product
     }
 }
 
-
-
 export const getAll = async (req, res) => { //lọc sản phẩm
     const { name, price, page, _limit } = req.query //khai báo các biến
     if (name || price || (page && _limit)) { // kiểm tra
@@ -98,7 +96,6 @@ export const getAll = async (req, res) => { //lọc sản phẩm
                 })
             }
         }
-        
     } else { //ngược lại
         try {
             const products = await Product.find().exec(); // trả về tất cả giữ liệu
