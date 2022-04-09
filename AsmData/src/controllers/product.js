@@ -31,16 +31,7 @@ export const list = async (req, res) => { // get all
     }
   }
 
-export const get = async (req, res) => { // get a product
-    try {
-        const products = await Product.findOne({_id: req.params.id }).exec();
-        res.json(products);    
-    } catch (error) {
-        res.status(400).json({
-            message: "Không thành công"
-        })
-    }
-}
+
 
 export const remove = async (req, res) => { // delete product
     try {
@@ -66,3 +57,16 @@ export const update = async (req, res) => { // update product
         })
     }
 }
+
+export const get = async (req, res) => { // get a product
+    const condistion = { _id: req.params.id }
+    try {
+        const product = await Product.findOne(condistion).exec();
+        res.status(200).json(product)
+    } catch (error) {
+        res.status(401).json({
+            message: "Lỗi , không tìm được sản phẩm"
+        })
+    }
+}
+
