@@ -22,12 +22,8 @@ import CategoryEdit from './pages/admin/category/CategoryEdit'
 import { categoryType } from './pages/types/categoryType'
 import { listcategory, addcategory, removecatgory, updatecategory } from './api/category'
 
-import NewsManager from './pages/admin/news/NewsManager'
-import NewsEdit from './pages/admin/news/NewsEdit'
-import NewsAdd from './pages/admin/news/NewsAdd'
 
 import UserManager from './pages/admin/user/UserManager'
-import CommentManager from './pages/admin/comment/CommentManager'
 import OrderManager from './pages/admin/orders/OrderManager'
 //website
 import Home from './pages/website/Home'
@@ -147,15 +143,10 @@ const onHanldeAddCate = (data: categoryType) => {
             <Route path=':id/edit' element={<CategoryEdit onUpdate={onHandleUpdateCate} />} />
           </Route>
 
-          <Route path='news'>
-            <Route index element={<NewsManager />} />
-            <Route path='add' element={<NewsAdd />} />
-            <Route path=':id/edit' element={<NewsEdit />} />
-          </Route>
+
 
 
           <Route path='user' element={<UserManager />} />
-          <Route path='comment' element={<CommentManager />} />
           <Route path='order' element={<OrderManager />} />
         </Route>
 
