@@ -26,7 +26,7 @@ export const list = async (req, res) => { // get all
         res.json(products);    
     } catch (error) {
         res.status(400).json({
-            message: "Thêm sản phẩm không thành công"
+            message: "Lỗi"
         })
     }
   }
