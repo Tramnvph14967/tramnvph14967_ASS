@@ -10,15 +10,8 @@ import userRouter from "./routes/auth";
 import orderDetailRouter from "./routes/orderDetail";
 import orderRouter from "./routes/order";
 
-
-
-
 import mongoose from 'mongoose';
 import cors from 'cors';
-
-
-
-
 
 const app = express(); // khởi tạo ap bằng express
 
