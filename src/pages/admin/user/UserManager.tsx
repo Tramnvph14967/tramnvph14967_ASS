@@ -28,6 +28,7 @@ const UserManager = ({ users, onRemove }: UserManagerProps) => {
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Address</th>
+                  <th scope="col">Role</th>
                 </tr>
               </thead>
               <tbody>
@@ -39,9 +40,8 @@ const UserManager = ({ users, onRemove }: UserManagerProps) => {
                       <td>{user.name}</td>
                       <td>{user.email}</td>
                       <td>{user.address}</td>
-                      <td>
-                        <Link to={`${user._id}/edit`} className="p-2 underline">Edit</Link>
-                      </td>
+                      <td>{user.role}</td>
+                      
                       <td>
                         <button onClick={() => onRemove(user._id)}>Delete</button>
                       </td>

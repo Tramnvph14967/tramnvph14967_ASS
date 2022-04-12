@@ -46,7 +46,7 @@ import Signup from './pages/Signup'
 
 function App() {
   const [count, setCount] = useState(0);
-//-----------------------------------------------------------------Products------------------------------------------
+  //-----------------------------------------------------------------Products------------------------------------------
   // data product
   const [products, setProducts] = useState<ProductType[]>([]);
   useEffect(() => {
@@ -80,68 +80,68 @@ function App() {
     setProducts(products.map(item => item._id === data.id ? data : item));
   }
 
-//-----------------------------------------------------------------------Category---------------------------------------------------------
-// data product
-const [categorys, setCategorys] = useState<categoryType[]>([]);
-useEffect(() => {
-  const getCategory = async () => {
-    const { data } = await listcategory();
-    setCategorys(data);
-    // console.log(data);
+  //-----------------------------------------------------------------------Category---------------------------------------------------------
+  // data product
+  const [categorys, setCategorys] = useState<categoryType[]>([]);
+  useEffect(() => {
+    const getCategory = async () => {
+      const { data } = await listcategory();
+      setCategorys(data);
+      // console.log(data);
+    }
+    getCategory();
+  }, [])
+
+  //xoa
+  const removecate = (id: number) => {
+    removecatgory(id);
+    confirm("Bạn có muốn xóa không? ");
+    // reRender
+    setCategorys(categorys.filter(item => item._id !== id));
+
   }
-  getCategory();
-}, [])
-
-//xoa
-const removecate = (id: number) => {
-  removecatgory(id);
-  confirm("Bạn có muốn xóa không? ");
-  // reRender
-  setCategorys(categorys.filter(item => item._id !== id));
-  
-}
-//thêm
-const onHanldeAddCate = (data: categoryType) => {
-  // console.log(data);
-
-  addcategory(data);
-  setCategorys([...categorys, data])
-}
- //sửa
- const onHandleUpdateCate = async (category: categoryType) => {
-  const { data } = await updatecategory(category);
-  console.log(data);
-  // reRender
-  setCategorys(categorys.map(item => item._id === data.id ? data : item));
-}
-//------------------------------------------------------------------user------------------------------------------------------
-const [users, setUser] = useState<UserType[]>([]);
-useEffect(() => {
-  const getUser = async () => {
-    const { data } = await listuser();
-    
-    setUser(data);
+  //thêm
+  const onHanldeAddCate = (data: categoryType) => {
     // console.log(data);
-  }
-  getUser();
-}, [])
 
-//xoa
-const removeuser = (id: number) => {
-  removeuser(id);
-  confirm("Bạn có muốn xóa không? ");
-  // reRender
-  setUser(users.filter(item => item._id !== id));
-  
-}
+    addcategory(data);
+    setCategorys([...categorys, data])
+  }
+  //sửa
+  const onHandleUpdateCate = async (category: categoryType) => {
+    const { data } = await updatecategory(category);
+    console.log(data);
+    // reRender
+    setCategorys(categorys.map(item => item._id === data.id ? data : item));
+  }
+  //------------------------------------------------------------------user------------------------------------------------------
+  const [users, setUser] = useState<UserType[]>([]);
+  useEffect(() => {
+    const getUser = async () => {
+      const { data } = await listuser();
+
+      setUser(data);
+      // console.log(data);
+    }
+    getUser();
+  }, [])
+
+  //xoa
+  const removeuserss = (id: number) => {
+    removeuser(id);
+    confirm("Bạn có muốn xóa không? ");
+    // reRender
+    setCategorys(categorys.filter(item => item._id !== id));
+
+  }
 
   return (
     <div className="container-fuild">
 
       <Routes>
         <Route path="/" element={<WebsiteLayout />}>
-          <Route index element={<Home products={products}/>} />
-          
+          <Route index element={<Home products={products} />} />
+
           <Route path="product">
             <Route index element={<Product products={products} />} />
             <Route path=":id" element={<ProductDetail />} />
@@ -170,11 +170,11 @@ const removeuser = (id: number) => {
 
 
           <Route path='user'>
-            <Route index element={<UserManager users= {users} onRemove={removeuser} />} />
+            <Route index element={<UserManager users={users} onRemove={removeuserss} />} />
 
           </Route>
 
-         
+
           <Route path='order' element={<OrderManager />} />
         </Route>
 
