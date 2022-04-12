@@ -20,17 +20,17 @@ import cors from 'cors';
 
 
 
-const app = express();
+const app = express(); // khởi tạo ap bằng express
 
 
-// middleware
+// middleware - 
 app.use(express.json());
 app.use(cors());
 app.use(morgan('tiny'));
 
 
 
-// Routing
+// Routing 
 app.use("/api", productRouter);
 app.use("/api", categoryRouter);
 app.use("/api", authRouter);
@@ -45,7 +45,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/we16306")
     .catch((error) => console.log(error))
 
 
-const PORT = 8000;
+const PORT = 8000; //chạy cổng
 app.listen(PORT, () => {
   console.log(`Server đang chạy cổng ${PORT}`);
 });

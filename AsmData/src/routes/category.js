@@ -5,7 +5,7 @@ import { checkAuth } from '../middleware/checkAuth';
 
 const router = Router();
 
-
+//dùng router để tạo các phương thức
 
 router.get("/category", listcategory);
 router.get("/category/:id", get);

@@ -3,6 +3,7 @@ import {signin, signup} from '../controllers/auth'
 import {listuser, removeuser, updateuser } from '../controllers/userjs'
 
 const router = Router();
+//dùng router để tạo các phương thức
 router.post("/signup", signup);
 router.post("/signin", signin);
 

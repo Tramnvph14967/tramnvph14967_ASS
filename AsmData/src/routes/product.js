@@ -4,7 +4,7 @@ import { create, get, list,  remove, update, getAll } from '../controllers/produ
 import {userById} from '../controllers/user';
 const router = Router();
 
-
+//dùng router để tạo các phương thức
 
 router.get("/products",  list);
 router.get("/product/:id",get);
