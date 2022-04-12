@@ -37,7 +37,7 @@ const ProductDetail = (props: Props) => {
 
             <div className="col-md-6">
               <div className="pro-img-details">
-                <img src="https://via.placeholder.com/550x380/FFB6C1/000000" alt />
+                <img src={product?.image} style={{maxWidth: "400px"}} alt />
               </div>
 
             </div>

@@ -43,7 +43,7 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                       <td>{index + 1}</td>
                       <td>{product.category}</td>
                       <td>{product.name}</td>
-                      <td>{product.image}</td>
+                      <td><img src={product.image} alt="" style={{maxWidth: "50px"}} /></td>
                       <td>{product.price}</td>
                       <td>{product.description}</td>
                       <td>

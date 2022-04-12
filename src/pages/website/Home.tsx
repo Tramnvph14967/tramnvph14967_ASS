@@ -122,7 +122,7 @@ const Home = (products: HomeProps) => {
           return (
             <div className="col mt-2">
               <div className="card" style={{ width: '18rem' }}>
-                <img src="https://thumbs.nosto.com/quick/qjjk7w5u/8/67711/8157649d4b1fe1a684858a47e96f355bbc19de2f2cb85e9055ecb3ef379cfa0ca/A" className="card-img-top" alt="..." />
+                <img src={item.image} className="card-img-top h-2" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title">{item.name}</h5>
                   <span>Giá:{item.price}VNĐ</span>

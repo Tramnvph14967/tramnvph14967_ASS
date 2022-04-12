@@ -14,13 +14,10 @@ export const create = async (req, res) => { // create product
 }
 
 export const list = async (req, res) => { // get all
-    // /product?limit=4
-    // /product?sortBy=name&order=asc
     const limitNumber = 20
     const limit = req.query.limit ? +req.query.limit : limitNumber;
     const sortBy = req.query.sortBy ? req.query.sortBy : '_id';
     const order = req.query.order ? req.query.order : 'desc';
-
     try {
         const products = await Product.find().limit(limit).exec();
         res.json(products);    
@@ -30,8 +27,6 @@ export const list = async (req, res) => { // get all
         })
     }
   }
-
-
 
 export const remove = async (req, res) => { // delete product
     try {
