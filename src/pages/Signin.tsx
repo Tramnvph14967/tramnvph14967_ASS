@@ -16,7 +16,7 @@ const Signin = () => {
     const { data: user } = await signin(data);
     localStorage.setItem('user', JSON.stringify(user))
     alert("đăng nhập thành công");
-    navigate('/admin/product')
+    navigate('/')
   }
   return (
     <form className='py-4 container col-md-6' action="" onSubmit={handleSubmit(onSubmit)}>

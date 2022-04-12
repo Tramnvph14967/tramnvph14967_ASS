@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 export const signup = async (req, res) => {
     //khai báo
-    const { email, name, password} = req.body;
+    const { email, name, password, address, surname} = req.body;
     try {
         // kiem tra user co ton tai khong?
         const existUser = await User.findOne({email}).exec();
@@ -14,13 +14,15 @@ export const signup = async (req, res) => {
             })
         }
         //nếu user không tồn tại thì add giữ liệu
-        const user = await new User({email, name, password}).save();
+        const user = await new User({email, name, password, address, surname}).save();
         res.json({
             //trả về thằng user với các trường id, email, name
             user: {
                 _id: user._id,
                 email: user.email,
-                name: user.name
+                surname: user.surname,
+                name: user.name,
+                address: user.address
             }
         })
     } catch (error) {
@@ -56,42 +58,5 @@ export const signin = async (req, res) => {
         }
     })
 }
-export const list = async (req, res) => { // get all
 
-    const limitNumber = 20
-    const limit = req.query.limit ? +req.query.limit : limitNumber;
-    const sortBy = req.query.sortBy ? req.query.sortBy : '_id';
-    const order = req.query.order ? req.query.order : 'desc';
 
-    try {
-        const users = await user.find().limit(limit).exec();
-        res.json(users);    
-    } catch (error) {
-        res.status(400).json({
-            message: "Lỗi"
-        })
-    }
-  }
-export const remove = async (req, res) => { // delete product
-    try {
-        const users = await user.findOneAndDelete({_id: req.params.id }).exec();
-        res.json(users);    
-    } catch (error) {
-        res.status(400).json({
-            message: "Không thành công"
-        })
-    }
-}
-export const update = async (req, res) => { // update product
-    const condition = {_id: req.params.id }; 
-    const update = req.body;
-    const optional = { new : true}
-    try {
-        const users = await user.findOneAndUpdate(condition,update,optional).exec();
-        res.json(users);    
-    } catch (error) {
-        res.status(400).json({
-            message: "Update Sản phẩm không thành công"
-        })
-    }
-}

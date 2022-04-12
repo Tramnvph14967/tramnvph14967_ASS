@@ -3,6 +3,10 @@ import { createHmac } from 'crypto';
 import { v4 as uuidv4 } from 'uuid';
 
 const userSchema = new Schema({
+    surname:{
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         trim: true,
@@ -13,6 +17,10 @@ const userSchema = new Schema({
         required: true
     },
     password: {
+        type: String,
+        required: true
+    },
+    address: {
         type: String,
         required: true
     },

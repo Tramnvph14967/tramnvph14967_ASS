@@ -18,3 +18,4 @@ export const userById = async (req, res, next, id) => {
         console.log(error)
     }
 }
+

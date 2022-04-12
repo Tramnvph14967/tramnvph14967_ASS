@@ -22,8 +22,14 @@ import CategoryEdit from './pages/admin/category/CategoryEdit'
 import { categoryType } from './pages/types/categoryType'
 import { listcategory, addcategory, removecatgory, updatecategory } from './api/category'
 
-
 import UserManager from './pages/admin/user/UserManager'
+import { listuser, removeuser } from './api/auth'
+import { UserType } from './pages/types/userType'
+
+
+
+
+
 import OrderManager from './pages/admin/orders/OrderManager'
 //website
 import Home from './pages/website/Home'
@@ -108,7 +114,26 @@ const onHanldeAddCate = (data: categoryType) => {
   // reRender
   setCategorys(categorys.map(item => item._id === data.id ? data : item));
 }
+//------------------------------------------------------------------user------------------------------------------------------
+const [users, setUser] = useState<UserType[]>([]);
+useEffect(() => {
+  const getUser = async () => {
+    const { data } = await listuser();
+    
+    setUser(data);
+    // console.log(data);
+  }
+  getUser();
+}, [])
 
+//xoa
+const removeuser = (id: number) => {
+  removeuser(id);
+  confirm("Bạn có muốn xóa không? ");
+  // reRender
+  setUser(users.filter(item => item._id !== id));
+  
+}
 
   return (
     <div className="container-fuild">
@@ -144,9 +169,12 @@ const onHanldeAddCate = (data: categoryType) => {
           </Route>
 
 
+          <Route path='user'>
+            <Route index element={<UserManager users= {users} onRemove={removeuser} />} />
 
+          </Route>
 
-          <Route path='user' element={<UserManager />} />
+         
           <Route path='order' element={<OrderManager />} />
         </Route>
 
