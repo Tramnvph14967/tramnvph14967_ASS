@@ -151,7 +151,7 @@ function App() {
           <Route path="/checkout" element={<CheckOut />} />
         </Route>
 
-        <Route path="admin" element={<AdminLayouts />}>
+        <Route path="/admin" element={<AdminLayouts />}>
           <Route index element={<Navigate to="Dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
 

@@ -129,7 +129,7 @@ const Home = (products: HomeProps) => {
                 </div>
 
                 <div className="card-body">
-                  <a href="#" className="card-link">Add Card</a>
+                  <a href="" className="card-link">Add Card</a>
                   <Link to={`/product/${item._id}`} className="card-link">Detail</Link>
                 </div>
               </div>
