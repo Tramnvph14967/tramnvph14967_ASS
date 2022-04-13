@@ -34,12 +34,12 @@ const userSchema = new Schema({
 }, { timestamps: true});
 
 userSchema.methods = {
-    authenticate(password){
+    authenticate(password){ //kiểm tra password
         console.log('password in method', password);
         console.log('this.password == this.encrytPassword(password)', this.password == this.encrytPassword(password))
         return this.password == this.encrytPassword(password);
     },
-    encrytPassword(password){ 
+    encrytPassword(password){ // trả về pass word đã được mã hóa
         console.log('password in method', password)
         if(!password) return;
         try {
