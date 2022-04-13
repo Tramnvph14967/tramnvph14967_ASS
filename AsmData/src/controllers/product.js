@@ -14,12 +14,13 @@ export const create = async (req, res) => { // create product
 }
 
 export const list = async (req, res) => { // get all
-    const limitNumber = 20
-    const limit = req.query.limit ? +req.query.limit : limitNumber;
-    const sortBy = req.query.sortBy ? req.query.sortBy : '_id';
-    const order = req.query.order ? req.query.order : 'desc';
+    // const limitNumber = 20
+    // const limit = req.query.limit ? + req.query.limit : limitNumber;
+    // const sortBy = req.query.sortBy ? req.query.sortBy : '_id';
+    // const order = req.query.order ? req.query.order : 'desc';
     try {
-        const products = await Product.find().limit(limit).exec();
+        // const products = await Product.find().limit(limit).exec();
+        const products = await Product.find().exec();
         res.json(products);    
     } catch (error) {
         res.status(400).json({
@@ -66,7 +67,7 @@ export const get = async (req, res) => { // get a product
 }
 
 export const getAll = async (req, res) => { //tim kiem
-    const { name, price, page, _limit } = req.query //khai báo các biến nhận giữ liệu từ client
+    const { name, price, page, _limit } = req.query //khai báo
     if (name || price || (page && _limit)) { // kiểm tra
         console.log("abc");
         const { name } = req.query; //nhận giữ liệu name từ client

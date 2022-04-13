@@ -6,7 +6,7 @@ export const signup = async (req, res) => {
     const { email, name, password, address, surname} = req.body;
     try {
         // kiem tra user co ton tai khong?
-        const existUser = await User.findOne({email}).exec();
+        const existUser = await User.findOne({email}).exec(); //findone trả về một giữ liệu
         //Nếu user tồn tại
         if(existUser){
             return res.status(400).json({
@@ -30,10 +30,10 @@ export const signup = async (req, res) => {
     }
 }
 export const signin = async (req, res) => {
-    //khai báo
+     //khai báo nhận giữ liệu từ client
     const { email, password} = req.body;
-    //Kiểm tra user có tồn tại hay không
     const user = await User.findOne({email}).exec();
+
     //nếu user không tồn tại thì báo message
     if(!user){
         return res.status(400).json({
@@ -46,7 +46,7 @@ export const signin = async (req, res) => {
             message: "Mat khau khong dung"
         })
     }
-    // mã hóa mật khẩu
+    
     const token = jwt.sign({_id: user._id}, "123456", { expiresIn: 60 * 60 }); 
     // trả về giữ liệu
     return res.json({

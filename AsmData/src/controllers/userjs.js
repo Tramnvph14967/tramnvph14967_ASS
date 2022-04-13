@@ -4,15 +4,15 @@ import slugify from 'slugify';
 
 
 export const listuser = async (req, res) => { // get all
-    // /product?limit=4
-    // /product?sortBy=name&order=asc
-    const limitNumber = 20
-    const limit = req.query.limit ? +req.query.limit : limitNumber;
-    const sortBy = req.query.sortBy ? req.query.sortBy : '_id';
-    const order = req.query.order ? req.query.order : 'desc';
+   
+    // const limitNumber = 20
+    // const limit = req.query.limit ? +req.query.limit : limitNumber;
+    // const sortBy = req.query.sortBy ? req.query.sortBy : '_id';
+    // const order = req.query.order ? req.query.order : 'desc';
 
     try {
-        const users = await User.find().limit(limit).exec();
+        // const users = await User.find().limit(limit).exec();
+        const users = await User.find().exec();
         res.json(users);    
     } catch (error) {
         res.status(400).json({
@@ -20,8 +20,6 @@ export const listuser = async (req, res) => { // get all
         })
     }
   }
-
-
 
 export const removeuser = async (req, res) => { // delete product
     try {

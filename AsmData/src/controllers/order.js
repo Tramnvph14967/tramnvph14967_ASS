@@ -2,7 +2,7 @@ import Order from "../models/order";
 import OrderDetail from "../models/orderDetail";
 
 export const create = async (req, res) => {
-    const {username, name, phone, address, notes,total } = req.body; //khai báo, Nhận dữ liệu từ client gưi lên
+    const {username, name, phone, address, notes,total } = req.body; //khai báo
     let numberphone = +phone
     try {
         const order = await new Order({ username,name, phone: numberphone, address, notes,total }).save(); //Chờ order chạy xong và lưu lại
@@ -14,11 +14,11 @@ export const create = async (req, res) => {
     }
 };
 export const list = async(req,res) =>{ 
-    const {username} = req.query //Nhận user từ client 
+    const {username} = req.query //khai báo
     if (username) { //Nếu tồn tại user
         try {
-            const orders = await Order.find({username: username}).exec(); // chờ kiểm tra lấy giữ liệu
-            res.status(200).json(orders) // trả về đơn hàng theo user
+            const orders = await Order.find({username: username}).exec(); // chờ kiểm tra trả về giữ liệu
+            res.status(200).json(orders) // trả về và lưu lại giữ liệu
         } catch (error) {
             
         }
@@ -43,7 +43,7 @@ export const read = async (req,res) =>{
     }
 };
 export const update = async (req,res) =>{
-    const condistion = req.params.id; // khai báo condistion nhận id trên đường dẫn
+    const condistion = req.params.id; // khai báo condistion
     const {status} = req.body;  // khai báo status nhận giữ liệu từ client gửi lên
     try {
         const order = await Order.findByIdAndUpdate(condistion,{status : status}).exec();  // chờ lưu lại

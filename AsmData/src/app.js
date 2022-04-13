@@ -21,8 +21,6 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('tiny'));
 
-
-
 // Routing 
 app.use("/api", productRouter);
 app.use("/api", categoryRouter);
